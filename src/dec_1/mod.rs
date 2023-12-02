@@ -15,13 +15,9 @@ fn read_input() -> io::Result<Vec<String>> {
 pub fn run() -> io::Result<()> {
     let input = read_input()?;
 
-    let mut sum = 0;
-    for line in &input {
-        match get_first_and_last_number(&line) {
-            Ok(number) => sum += number,
-            Err(e) => eprintln!("Error: {}", e),
-        }
-    }
+    let sum: i32 = input.iter()
+    .filter_map(|line| get_first_and_last_number(&line).ok())
+    .sum();
 
     println!("{}", sum);
     Ok(())
@@ -82,3 +78,4 @@ fn get_first_and_last_number(s: &str) -> Result<i32, &'static str> {
 
     Ok(combined_number)
 }
+
