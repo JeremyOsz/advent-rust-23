@@ -1,6 +1,5 @@
-workspace = { members = ["src/dec-2"] }
 [package]
-name = "advent_rust"
+name = "dec-2"
 version = "0.1.0"
 edition = "2021"
 
